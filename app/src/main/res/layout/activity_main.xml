@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- ── Video player ───────────────────────────────────────────── -->
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:use_controller="false"
+        app:surface_type="surface_view"
+        app:resize_mode="fit" />
+
+    <!-- ── Status / spinner (center) ─────────────────────────────── -->
+    <LinearLayout
+        android:id="@+id/status_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="28dp"
+        android:background="@drawable/bg_status"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/spinner"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:indeterminateTint="@color/gold" />
+
+        <TextView
+            android:id="@+id/status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp"
+            android:textColor="#CCCCCC"
+            android:gravity="center"
+            android:maxWidth="400dp" />
+    </LinearLayout>
+
+    <!-- ── Controls overlay ───────────────────────────────────────── -->
+    <LinearLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- TOP BAR -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/gradient_top"
+            android:padding="28dp"
+            android:paddingBottom="64dp">
+
+            <!-- Logo block -->
+            <LinearLayout
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_logo">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TV"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="#111111"
+                    android:letterSpacing="0.2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2000"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="#111111" />
+            </LinearLayout>
+
+            <!-- Channel name -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TV 2000"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="#F2F2F2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Canale 28 DTT · Diretta live"
+                    android:textSize="14sp"
+                    android:textColor="@color/gold"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- LIVE badge -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  LIVE"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_live"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp" />
+        </LinearLayout>
+
+        <!-- SPACER -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- BOTTOM BAR -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/gradient_bottom"
+            android:paddingTop="56dp"
+            android:paddingStart="28dp"
+            android:paddingEnd="28dp"
+            android:paddingBottom="28dp">
+
+            <!-- Countdown row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/auto_reload_label"
+                    android:textSize="13sp"
+                    android:textColor="#88FFFFFF" />
+
+                <ProgressBar
+                    android:id="@+id/countdown_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="4dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressTint="@color/gold"
+                    android:progressBackgroundTint="#2BFFFFFF" />
+
+                <TextView
+                    android:id="@+id/countdown_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30:00"
+                    android:textSize="13sp"
+                    android:textColor="#88FFFFFF"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <!-- Buttons row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/reload_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:text="@string/btn_reload"
+                    android:textSize="15sp"
+                    android:textColor="@color/gold"
+                    android:background="@drawable/bg_btn_gold"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:focusable="true"
+                    android:nextFocusRight="@id/quality_btn" />
+
+                <Button
+                    android:id="@+id/quality_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:text="Auto"
+                    android:textSize="15sp"
+                    android:textColor="#E0E0E0"
+                    android:background="@drawable/bg_btn_dark"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:layout_marginStart="12dp"
+                    android:focusable="true"
+                    android:nextFocusLeft="@id/reload_btn" />
+
+                <!-- Spacer -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <!-- Keyboard hint -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remote_hint"
+                    android:textSize="12sp"
+                    android:textColor="#44FFFFFF"
+                    android:gravity="end" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

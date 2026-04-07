@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="180dp"
+    android:viewportWidth="320"
+    android:viewportHeight="180">
+    <path android:fillColor="#0e0e0e" android:pathData="M0,0 L320,0 L320,180 L0,180 Z"/>
+    <!-- Gold accent bar -->
+    <path android:fillColor="#C9A84C" android:pathData="M0,0 L8,0 L8,180 L0,180 Z"/>
+    <!-- TV 2000 text -->
+    <path android:fillColor="#C9A84C" android:pathData="M28,55 L80,55 L80,65 L58,65 L58,125 L50,125 L50,65 L28,65 Z"/>
+    <path android:fillColor="#C9A84C" android:pathData="M84,55 L94,55 L106,105 L118,55 L128,55 L113,125 L99,125 Z"/>
+    <path android:fillColor="#F2F2F2" android:pathData="M145,80 L250,80 L250,88 L145,88 Z"/>
+    <path android:fillColor="#F2F2F2" android:pathData="M145,92 L230,92 L230,100 L145,100 Z"/>
+</vector>
